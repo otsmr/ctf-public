@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizen</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+
+<!-- -- FEEL FREE TO IGNORE ME---------- -->
+<!-- https://github.com/cure53/DOMPurify -->
+<script defer src="/purify.js"></script>
+<!-- ----------------------------------- -->
+
+
+</head>
+<body>
+
+    <div class="form">
+        
+        <input type="text" name="title" placeholder="Titel"/>
+        <textarea name="note" placeholder="Notiz (HTML ist erlaubt)"></textarea>
+        <button>Notiz speichern</button>
+        
+    </div>
+    
+    <div class="notes"></div>
+
+    <script>
+        const notes = {{notes}};
+    </script>
+
+    <script src="/main.js"></script>
+    
+</body>
+</html>

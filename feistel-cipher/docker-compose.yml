@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  feistelcipher:
+    container_name: feistelcipher
+    build: .
+    restart: unless-stopped
+    ports:
+      - "7796:1337"
