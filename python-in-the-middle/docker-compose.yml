@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+
+  python_in_the_middle_manager:
+
+    container_name: python_in_the_middle_manager
+    build: ./manager
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "7800:80"

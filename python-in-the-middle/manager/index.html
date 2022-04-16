@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python-In-The-Middle</title>
+</head>
+<body>
+
+    <main>
+
+        <h1>Python-In-The-Middle</h1>
+
+        <p>Currently {{container-count}} of a total of 20 possible instances are running.</p>
+        <p>Containers are automatically deleted after 24h.</p>
+
+        <h2>Your session</h2>
+        <p><textarea>{{session}}</textarea></p>
+        <button onclick="document.cookie = 'jwt=' + document.querySelector('textarea').value">Restore session</button>
+
+        
+        <h3>Your instances</h3>
+        <button id="create" onclick="createInstance()">Create new instance</button>
+        <li>
+            {{own-container}}
+        </li>
+
+    </main>
+
+    <script>
+
+        function removeInstance(id) {
+
+            document.querySelector("main").innerHTML = "Container will be removed. Please wait!";
+
+            fetch("/remove?id=" + id).then(e => e.json()).then(res => {
+                if (res.error) {
+                    alert(res.message);
+                }
+                location.reload();
+            });
+            
+        }
+
+        function createInstance() {
+
+            document.querySelector("main").innerHTML = "Container is created. Please wait!";
+
+            fetch("/create").then(e => e.json()).then(res => {
+                if (res.error) {
+                    alert(res.message);
+                }
+                location.reload();
+            });
+
+        }
+    </script>
+</body>
+</html>
