@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:11
 
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 

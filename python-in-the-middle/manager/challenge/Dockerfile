@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:11
 
 RUN apt update && apt upgrade -y && \
     apt install -y sudo python3 python3-pip iptables netcat openssh-server tcpdump
